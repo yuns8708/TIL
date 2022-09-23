@@ -14,9 +14,9 @@
 2. var3 * var2 = 2.0 * 2
 여기서 궁금한 것은 (int)를 왜 사용하는걸까?
 
-![](https://velog.velcdn.com/images/yuns8708/post/243d0d7a-5297-4998-9f73-c01ad9492a38/image.png)
+        ![](https://velog.velcdn.com/images/yuns8708/post/243d0d7a-5297-4998-9f73-c01ad9492a38/image.png)
 
-그래서 int가 없도록 해봤더니 오류가 난다. double의 값이어서 int로 변환해주는것이었다.
+        그래서 int가 없도록 해봤더니 오류가 난다. double의 값이어서 int로 변환해주는것이었다.
 3. 문제가 이해가 잘 안됐었는데, 잘 생각해보니 5에서 2를 나누면 2.5일텐데?! 2가 나왔다.
 4. 'java 소수점 출력'을 검색해서 글들을 보니, 소수점이 나오게하려면 나누는 값들도 double이어야한다.
 
