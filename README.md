@@ -2,4 +2,4 @@
 Today I Learned
 
 
-[java과제](java\java_assignment.md)
+[java과제](https://github.com/yuns8708/TIL/blob/main/java/java_assignment.md)

@@ -1,1 +1,1 @@
-[2022.09.23_java 과제](java\java_assignment\220923_java_quiz.md)
+[2022.09.23_java 과제](https://github.com/yuns8708/TIL/blob/main/java/java_assignment/220923_java_quiz.md)
