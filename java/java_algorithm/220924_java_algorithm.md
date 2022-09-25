@@ -510,3 +510,343 @@ class quiz12 {
     }
 }
 ```
+---
+
+## 13. 2016년
+
+https://school.programmers.co.kr/learn/courses/30/lessons/12901
+
+
+1. 윤년 : 2월이 하루 더있는것 (2월29일)
+월 중에 일수가 31일인 월과 30일인 월과 29일인 월을 구분한다.
+2. 날짜에서 일을 빼서 요일을 구분한다.-> 1월1일이 금요일이니, 일주일 7에서 1을 뺀 수를 금요일로 지정
+```
+        String[] Day = new String[]{"SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"};
+        String whatDay = "";
+
+        int a = 1;
+        int b = 31;
+        if (whatDay == Day[0]) {
+            System.out.println(Day[0]);
+        }
+
+        int num = 7;
+        if (a == 1 || a == 3 || a == 5 || a == 7 || a == 8 || a == 10 || a == 12) {
+            num = 7 - b;
+            System.out.println(num);
+            if (num == 6) {
+                System.out.println(Day[5]);
+            } else if (num == 5) {
+                System.out.println(Day[6]);
+            } else if (num == 4) {
+                System.out.println(Day[0]);
+            } else if (num == 3) {
+                System.out.println(Day[2]);
+            } else if (num == 2) {
+                System.out.println(Day[1]);
+            } else if (num == 1) {
+                System.out.println(Day[2]);
+            } else if (num == 0) {
+                System.out.println(Day[3]);
+            }
+        } else if (a == 4 || a == 6 || a == 9 || a == 11) {
+
+        } else {
+            // 2월 (29일)일 때
+        }
+        if (b == 1) {
+        }
+```
+7에서 b를 빼보려고 했는데.. 그러면 b가 7이 넘을때면 -값이 되어버린다.
+
+---
+
+## 14. 나누어 떨어지는 숫자 배열
+https://school.programmers.co.kr/learn/courses/30/lessons/12910
+
+1. for문으로 arr에 있는 값 하나씩 가져오기
+2. 거기서 divisor과 나눠봐서 나머지가 0인 것 구별
+
+```
+        int[] arr = new int[] {5,9,7,10};
+        int divisor = 5;
+        int[] answer = new int[arr.length];
+
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[i]%divisor == 0) {
+                System.out.println("나누어떨어집니다");
+                answer[i] = arr[i];
+            } else {
+                System.out.println("나누어떨어지지 않습니다");
+            }
+        }
+        System.out.println(Arrays.toString(answer));
+```
+자꾸 [5,10] 처럼 나오지않고 [5,0,0,10]으로 나와서 이유를 헤맸는데, i번째를 돌면서 데이터를 넣어주다 보니까 나누어떨어지지 않더라도 i번째 자리를 채워버리게된다.
+
+3. 그래서 count라는 변수를 하나 만들고, 나누어떨어지지 않는(값이 배열에 들어가지 않을때)때에 ++괴게하고, answer에 값을 넣을 때의 인덱스를 i-count로 했다.
+4. 값이 차례대로 들어가긴 하는데, [5,10,0,0]처럼 여전히 0값이 남아있다 ㅠ.ㅠ
+빈 배열을 하나 더만들어서, 길이를 유동적으로 줄일 수 있게 answer의길이-count로 만들었다.
+5. 오름차순으로 배열한다.
+
+### ArrayList를 이용하여 해결
+
+
+```
+import java.util.ArrayList;
+import java.util.Collections;
+
+class Solution {
+    public ArrayList<Integer> solution(int[] arr, int divisor) {
+        
+                ArrayList<Integer> arr2 = new ArrayList<>();
+        ArrayList<Integer> result = new ArrayList<>();
+        int count = 0;
+        
+                for (int i = 0; i < arr.length; i++) {
+            arr2.add(arr[i]);
+        }
+
+        for (int i =0; i < arr2.size(); i++) {
+            if ( arr2.get(i)%divisor == 0) {
+                result.add(arr2.get(i));
+            } else {
+                count ++;
+            }
+        }
+        if (count == arr2.size()) {
+            result.add(-1);
+        }
+
+        Collections.sort(result);
+        System.out.println(result);
+        
+        return result;
+    }
+}
+```
+
+---
+
+## 15. 내적
+https://school.programmers.co.kr/learn/courses/30/lessons/70128
+
+난이도 : 쉬움
+
+1. 내적은 a와 b의 길이만큼 계속 꺼내서 곱하는것 -> a.length만큼 for문 돌리기
+2. 값을 담을 변수를 만들고(result) 계속 +=
+
+```
+class Solution {
+    public int solution(int[] a, int[] b) {
+        int result = 0;
+
+        for (int i = 0; i < a.length; i++) {
+            result += a[i]*b[i];
+        }
+
+        return result;
+    }
+}
+```
+
+---
+
+## 16. 문자열 내 p와 y의 개수
+
+https://school.programmers.co.kr/learn/courses/30/lessons/12916
+
+난이도 : 쉬움-중간
+
+1. 문자열을 하나씩 보고 p와 y가 몇개인지 판별 -> arrayList로 하나씩 집어넣고, for문으로 판별
+문제 : 문자열을 하나씩 잘라야함 -> sustring사용
+```
+        System.out.println("aaa".substring(0,1));
+        System.out.println("abc".substring(1,2));
+        System.out.println("abc".substring(2,3));
+        
+        // 즉, s.substring(i,i+1);
+```
+2. stringArr에서 p와 y의 개수를 세서 pNum, yNum에 각각 넣음.
+3. pNum과 yNum을 비교하여 수가 같으면 true, 틀리면 false
+```
+import java.util.ArrayList;
+class Solution {
+    boolean solution(String s) {
+        boolean answer = true;
+        ArrayList<String> stringArr = new ArrayList<>();
+        int pNum = 0;
+        int yNum = 0;
+        for (int i = 0; i < s.length(); i++) {
+            stringArr.add(s.substring(i,i+1));
+
+            if (stringArr.get(i).contains("p") || stringArr.get(i).contains("P")) {
+                pNum++;
+            } else if (stringArr.get(i).contains("y") || stringArr.get(i).contains("Y")) {
+                yNum++;
+            }
+        }
+        if (pNum == yNum) {
+            answer = true;
+        }else {
+            answer = false;
+        }
+        System.out.println(answer);
+        return answer;
+    }
+}
+```
+다른사람의 코드를 보니, pNum과 yNum의 크기가 같으면 +-로 0이 되니 count 변수 하나만 사용하고 count==0일때로 구분하는 것도 좋은 방법인것같다.
+
+---
+
+## 17. 문자열 다루기 기본
+
+https://school.programmers.co.kr/learn/courses/30/lessons/12918
+
+난이도 : 중간
+
+1. 문자열을 잘라서 배열에 넣기 (16번과 비슷한듯)
+2. 문자열에 문자가 있는지 확인 -> 문자열을 int로 형변환시켜서 안되는거 찾기..? 또는 0~9까지의 숫자를 모두 문자열과 비교시키기(이중for문)
+
+```
+        boolean answer = false;
+
+        ArrayList<String> stringArr = new ArrayList<>();
+        int numNum = 0;
+        for (int i = 0; i < s.length(); i++) {
+            stringArr.add(s.substring(i,i+1));
+//            System.out.println(stringArr);
+
+            for (int j = 0; j <= 9; j++) {
+                System.out.println("j는 : " + Integer.toString(j));
+                System.out.println("str는 : " + stringArr.get(i));
+                if (Integer.toString(j) == stringArr.get(i)) {
+                    System.out.println("숫자입니다.");
+                    numNum ++;
+                }
+            }
+        }
+        System.out.println("숫자의 개수: "+numNum);
+        if(numNum == s.length()) {
+            answer =true;
+        }
+
+        return answer;
+```
+이중포문으로 0~9과 문자열을 비교했는데 0~9를 문자열로 형변환시켜줄 필요가 있었다.
+그리고 문자열로 바꾼 j와 stringArr(i)가 일치하지 않는 판정이 난다..
+그럼 0~9를 아예 배열로 만들어서 하나씩 꺼내보면 어떨까
+
+3. 그렇게 해도 numNum의 숫자가 변화가 없어 '문자열 일치'를 검색해봤더니, ==로 비교하는 것이 아닌 .equals()로 비교하는 것이 있었다. 자바는 ==로 문자열을 비교할 수가 없고 .equals()를 사용해야한다고 한다.
+.equals()로 문자열을 비교한 결과 잘 작동한다.
+```
+import java.util.ArrayList;
+
+class Solution {
+    public boolean solution(String s) {
+        boolean answer = false;
+        String[] numArr = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
+        ArrayList<String> stringArr = new ArrayList<>();
+        int numNum = 0;
+        for (int i = 0; i < s.length(); i++) {
+            stringArr.add(s.substring(i, i + 1));
+            System.out.println(stringArr);
+            for (int j = 0; j < numArr.length; j++) {
+                if (numArr[j].equals(stringArr.get(i))) {
+                    numNum++;
+                }
+            }
+        }
+        if (numNum == s.length()) {
+            answer = true;
+        }
+
+        return answer;
+    }
+}
+```
+근데 채점 결과 몇몇개가 실패가 떴다.
+오잉...? 어딜 봐도 기능은 잘 작동해서 질문하기 창을 보니 길이가 4/6이 아닐 때의 처리를 해줘야한다고 한다. -> if문으로 글자 길이가 4 또는 6일때만 동작하게 했다.
+```
+import java.util.ArrayList;
+
+class Solution {
+    public boolean solution(String s) {
+        boolean answer = false;
+
+        ArrayList<String> stringArr = new ArrayList<>();
+        int numNum = 0;
+
+        if (s.length() == 4 || s.length() == 6) {
+            for (int i = 0; i < s.length(); i++) {
+                stringArr.add(s.substring(i, i + 1));
+                for (int j = 0; j <= 9; j++) {
+                    if (Integer.toString(j).equals(stringArr.get(i))) {
+                        numNum++;
+                    }
+                }
+            }
+            if (numNum == s.length()) {
+                answer = true;
+            }
+            System.out.println(answer);
+        }
+        return answer;
+    }
+}
+```
+
+---
+
+## 18. 서울에서 김서방 찾기
+
+https://school.programmers.co.kr/learn/courses/30/lessons/12919
+
+난이도 : 쉬움
+
+1. String 배열에 Kim 이 있는지 찾기
+2. Kim의 위치 찾기
+```
+class Solution {
+    public String solution(String[] seoul) {
+        String answer = "";
+
+       for (int i = 0; i < seoul.length; i++) {
+           System.out.println(seoul[i]);
+           if (seoul[i].equals("Kim")) {
+               answer = "김서방은 " + i + "에 있다";
+           }
+       }
+        return answer;
+    }
+}
+```
+if문에서 Kim을 찾았을 때 break;하는것이 좋다.
+
+---
+
+## 19. 수박수박수박수박수박수?
+
+https://school.programmers.co.kr/learn/courses/30/lessons/12922
+
+1. 홀수면 "수"나오고, 짝수면 "박"나오게 하기
+2. 이것을 answer문자열에 붙이기 -> 문자열 붙이기를 처리해주는 명령어가 있지 않을까?? '자바 문자열 붙이기'를 검색해보니, concat(), append()등이 있지만, 그냥 +로 붙여도 된다고한다.. ㅋㅋㅋ!!!
+3. n의 숫자만큼 반복시키기 -> if에 들어가는 조건이 n % 2 == 0 에서 i % 2 == 0 으로 변경됨!!
+
+```
+class Solution {
+    public String solution(int n) {
+        String answer = "";
+        for (int i = 0; i < n; i++) {
+            if(i % 2 == 0) {
+                answer += "수";
+            } else {
+                answer += "박";
+            }
+        }
+        return answer;
+    }
+}
+```
+![](https://velog.velcdn.com/images/yuns8708/post/9a02c822-bdf3-4bdf-88d3-b3713cc4ee52/image.png)  다른사람의 풀이를 보니까 이런게 있어서 진짜 웃겼다ㅜㅜㅜㅜ
