@@ -1,5 +1,20 @@
 # java 알고리즘 문제풀이
 
+### 220926 TIL
+- 변수의 타입 확인하는 법 : .getClass()
+- long타입 str로 형변환하기 : String.valueOf(long값);
+
+- 문자열 쪼개서 하나씩 배열에 넣기 : 
+String[] 배열이름= 쪼갤 문자열.split("");
+
+- 배열 역순 정렬하기 : 
+Arrays.sort(배열이름, Collections.reverseOrder());
+
+- 제곱근 구하기 : 
+double형으로 나온다.
+Math.sqrt();
+
+---
 
 ## 1. 직사각형 별찍기
 
@@ -850,3 +865,422 @@ class Solution {
 }
 ```
 ![](https://velog.velcdn.com/images/yuns8708/post/9a02c822-bdf3-4bdf-88d3-b3713cc4ee52/image.png)  다른사람의 풀이를 보니까 이런게 있어서 진짜 웃겼다ㅜㅜㅜㅜ
+
+---
+
+
+## 20. 완주하지 못한 선수
+
+https://school.programmers.co.kr/learn/courses/30/lessons/42576
+
+1. participant의 값 arrayList에 넣기 / completion의 값 arrayList에 넣기
+
+2. 두개를 비교하여 같은 값 찾기
+
+3. 같은 값 지우기
+
+두 개의 값이 다른것을 하나 찾아 지워주면 간단한데, 두 개의 값이 같은것을 찾는 건 쉬운데 다른것을 찾으려면 for문에서 너무 많은 데이터가 찾아져서 어렵다..
+
+두개의 값이 같다면 num을 뽑아 arrayList에 저장하고,
+.add(), .remove()를 사용하여 numArr에 있는 숫자를 인덱스로 participantArr에서 지우려고했는데 잘 안 된다.
+
+---
+
+## 21. 이상한 문자 만들기
+
+https://school.programmers.co.kr/learn/courses/30/lessons/12930
+
+난이도 : 중간-어려움
+
+### 문자열 하나씩 쪼개서 리스트에 넣는 법
+```
+for (int i = 0; i < 쪼갤 문자열.length(); i++) {
+쪼갠것을 넣을 arraylist.add(쪼갤 문자열.substring(i, i + 1));
+}
+```
+이라고 생각했는데, .split()이라는 걸 알게되었다.
+""을 기준으로 잘라주면 글자가 하나하나씩 잘리게된다.
+```
+String[] strArr = 쪼갤 문자열.split("");
+```
+
+1. 문자열 쪼개서 빈 배열 strArr에 넣기
+2. 각각자리의 알파벳이 홀수인지 짝수인지 판별
+3. 짝수면 대문자로(.toUpperCase()), 홀수면 소문자로(.toLowerCase()) 변환
+
+
+```
+import java.util.ArrayList;
+
+class Solution {
+    public String solution(String s) {
+        String answer = "";
+
+        ArrayList<String> strArr = new ArrayList<>();
+
+        for (int i = 0; i < s.length(); i++) {
+            strArr.add(s.substring(i, i+1));
+
+            if ( i % 2 == 0 || i == 0) {
+//                System.out.println(strArr.get(i) + "는 짝수번째");
+                answer += strArr.get(i).toUpperCase();
+            } else {
+//                System.out.println(strArr.get(i) + "는 홀수번째");
+                answer += strArr.get(i).toLowerCase();
+            }
+        }
+        System.out.println(answer);
+
+        return answer;
+    }
+}
+```
+자신 있게 제출했는데 정확성이 18.8이다..
+
+문제를 다시 보니, 전체 문장 "hello world"에서 단어 별로 인덱스를 세야한다고 한다. (즉 "hello"와 "world"의 인덱스를 따로 세야한다.)
+
+그렇다면 공백일 때 단어를 잘라주는 무언가가 필요할것같다.
+
+찾아보니 .split()을 사용하면 될 것 같다.
+
+```
+        String answer = "";
+
+        String[] strArr = s.split("");
+
+        for (int i = 0; i < s.length(); i++) {
+            if (i % 2 == 0) {
+                answer += strArr[i].toUpperCase();
+            } else {
+                answer += strArr[i].toLowerCase();
+            }
+        }
+        System.out.println(answer);
+```
+
+그런데 이러면 공백이 있을 때의 대처를 할 수 없다.
+
+카운트를 받는 변수를 하나 만들고 공백일 때는 count=0 처리를 해주기로 했다.
+
+```
+import java.util.ArrayList;
+
+class Solution {
+    public String solution(String s) {
+        String answer = "";
+
+        int count = 0;
+
+        String[] strArr = s.split("");
+
+        for (int i = 0; i < s.length(); i++) {
+            if (strArr[i].equals(" ")) {
+                answer += strArr[i];
+                count = 0;
+            } else if (count % 2 == 0 || count == 0) {
+                answer += strArr[i].toUpperCase();
+                count++;
+            } else {
+                answer += strArr[i].toLowerCase();
+                count++;
+            }
+        }
+        System.out.println(answer);
+
+        return answer;
+    }
+}
+```
+
+---
+
+## 22. 자릿수 더하기
+
+https://school.programmers.co.kr/learn/courses/30/lessons/12931
+
+난이도 : 쉬움
+
+1. 받은 숫자 문자열로 변환하기 -> Integer.toString()
+2. 빈 배열을 만들고, 1번의 문자열 하나씩 쪼개서 넣기
+3. 2의 배열 값들을 숫자로 변환하고, numArr에 넣기
+3. 각 배열 값 더하기
+
+```
+import java.util.*;
+
+public class Solution {
+    public int solution(int n) {
+        int answer = 0;
+
+        String numStr = Integer.toString(n);
+        ArrayList<String> stringArr = new ArrayList<>();
+        ArrayList<Integer> numArr = new ArrayList<>();
+
+        for (int i = 0; i < numStr.length(); i++) {
+            stringArr.add(numStr.substring(i, i + 1));
+            numArr.add(Integer.parseInt(stringArr.get(i)));
+            answer += numArr.get(i);
+        }
+        return answer;
+    }
+}
+```
+
+---
+
+## 23. 자연수 뒤집어 배열로 만들기
+
+https://school.programmers.co.kr/learn/courses/30/lessons/12932
+
+중간 - 어려움
+
+1. n을 받아 문자열로 변환, 쪼개서 하나씩 배열에 집어넣기(split) -> 이걸 Integer.toString()로 해보려했더니 n이 long타입이어서 에러가 났다. 찾아보니 String.valueOf()란걸 쓰면 된다고 한다.
+2. 순서 바꾸기 -> 어떻게 인덱스 번호를 뒤집을것인가 많이 고민했다. 이중 for문으로 해보다가 그냥 for문으로 strArr의 길이-1에서 시작해서, 0이 될 때까지 --해주면 된다는 걸 깨달았다.
+
+```
+import java.util.ArrayList;
+
+class Solution {
+    public ArrayList<Integer> solution(long n) {
+        
+        ArrayList<Integer> result = new ArrayList<>();
+
+        String numStr = String.valueOf(n);
+        String[] strArr = numStr.split("");
+        
+        for (int j = strArr.length-1; j >= 0; j--) {
+            result.add(Integer.parseInt(strArr[j]));
+        }
+
+
+        return result;
+    }
+}
+```
+
+---
+
+## 24. 정수 내림차순으로 배치하기
+
+https://school.programmers.co.kr/learn/courses/30/lessons/12933
+
+1. 정수 n 문자열로 변환시켜 쪼개서 배열에 넣기 -> String.valueOf(n).split("")
+2. 배열에서 내림차순 배치 -> Arrays.sort(strArr, Collections.reverseOrder());
+3. temp 빈 문자열을 만들고, 배열에서 하나씩 꺼내서 붙이기
+4. temp를 숫자로 형변환 -> 런타임 에러 : int말고 long으로 변환해야함!! Long.parseLong()
+
+```
+import java.util.Arrays;
+import java.util.Collections;
+
+class Solution {
+    public long solution(long n) {
+        long answer = 0;
+        String temp = "";
+
+        String[] strArr = String.valueOf(n).split("");
+        for (int i = 0; i < strArr.length; i++) {
+            System.out.println(strArr[i]);
+        }
+
+        Arrays.sort(strArr, Collections.reverseOrder());
+        System.out.println(strArr[0]);
+        for (int i = 0; i < strArr.length; i++) {
+            temp += strArr[i];
+        }
+
+        answer = Long.parseLong(temp);
+
+        return answer;
+    }
+}
+```
+
+---
+
+## 25. 정수 제곱근 판별
+
+https://school.programmers.co.kr/learn/courses/30/lessons/12934
+
+난이도 : 중간
+
+1. ........ 아무리 생각해도 잘 모르겠다.
+2. '자바 제곱근'을 검색해보니, 제곱근을 구하는 메소드가 있다고한다. -> Math.sqrt()
+3. 그렇다면 n의 제곱근 값인 square을 곱한 결과가 같은지 판별해준다.
+4. 조건을 만족하면 answer = (square+1) * (square+1), 만족하지 않으면 answer = -1 -> 여기서, double과 long간의 형변환을 해야한다. (int)를 앞에 붙여줌
+
+```
+class Solution {
+    public long solution(long n) {
+        long answer = 0;
+
+        double square = Math.sqrt(n);
+
+        if(square * square == n) {
+            answer = (int)(square+1) * (int)(square+1);
+        } else {
+            answer = -1;
+        }
+        System.out.println(answer);
+
+        return answer;
+    }
+}
+```
+
+채점 결과 정확성 44.4......
+아마 그냥 int로 바꿔주고 long타입이 아니어서 그런듯하다
+이렇게 되면 double -> int -> long 이렇게 두번 바꿔치기 해주면 어떨까
+
+```
+        double square = Math.sqrt(n);
+        int intSquare = (int)Math.sqrt(n);
+        long longSquare = (long) (int) Math.sqrt(n);
+```
+
+삼단 변신 후
+채점도 무사히 통과했다!!
+
+```
+class Solution {
+    public long solution(long n) {
+        long answer = 0;
+        
+        long longSquare = (long) (int) Math.sqrt(n);
+
+        if(longSquare * longSquare == n) {
+            answer = (longSquare+1) * (longSquare+1);
+        } else {
+            answer = -1;
+        }
+        System.out.println(answer);
+
+        return answer;
+    }
+}
+```
+
+---
+
+## 26. 제일 작은 수 제거하기
+
+https://school.programmers.co.kr/learn/courses/30/lessons/12935
+
+난이도 : 어려움
+
+1. 배열 오름차순 정렬 -> Collections.sort()
+2. 0번째 인덱스의 값 삭제 -> intArr.remove(0)
+3. intArr의 size가 0이면, .add(-1)
+
+```
+class Solution {
+    public ArrayList<Integer> solution(int[] arr) {
+        ArrayList<Integer> intArr = new ArrayList<>();
+
+        // 받은 배열에서 하나씩 꺼내서 arraylist에 넣기
+        for (int i = 0; i < arr.length; i++) {
+            intArr.add(arr[i]);
+        }
+        // 오름차순 정렬
+        Collections.sort(intArr);
+        
+        // 0번째 인덱스 값 삭제하기
+        intArr.remove(0);
+
+
+        if (intArr.size() == 0) {
+            intArr.add(-1);
+        }
+
+        return intArr;
+    }
+}
+```
+그런데 . . 문제가 있다.
+![](https://velog.velcdn.com/images/yuns8708/post/60617089-a754-4101-95ea-27c31845a8be/image.png)
+
+
+아예 오름차순 정렬을 하는게 아니라 원래의 배열 순서를 유지하면서 가장 작은 수를 지우는거였다.
+
+그렇다면..
+배열을 다 돌면서 두개의 숫자를 비교하고 나중에 가장 작은 수를 지우면?
+
+1. 배열을 돌며 값 하나씩 꺼내오기
+2. 이중for문으로 두개의 값 비교하기
+3. 가장 작은 값의 인덱스를 변수에 저장해서 remove하기
+
+```
+import java.util.ArrayList;
+import java.util.Collections;
+
+
+class Solution {
+    public ArrayList<Integer> solution(int[] arr) {
+        ArrayList<Integer> intArr = new ArrayList<>();
+        ArrayList<Integer> answer = new ArrayList<>();
+        int smallNum = 0;
+
+        // 받은 배열에서 하나씩 꺼내서 arraylist에 넣기
+        for (int i = 0; i < arr.length; i++) {
+            intArr.add(arr[i]);
+        }
+
+        for (int i = 0; i < intArr.size(); i++) {
+            for (int j = 0; j < intArr.size(); j++) {
+                if(intArr.get(i) > intArr.get(j)) {
+                    smallNum = j;
+                }
+            }
+        }
+
+        intArr.remove(smallNum);
+        
+                if (intArr.size() == 0) {
+            intArr.add(-1);
+        }
+
+        return intArr;
+    }
+}
+```
+
+![](https://velog.velcdn.com/images/yuns8708/post/c310d9db-0a55-4da0-b7dc-d56c71b76266/image.png)
+
+..? ㅋㅋㅋ 정확성이 6.3이다..
+println으로 다양한 값을 넣어보며 실험해봤더니, 
+{-1,5,10,6}처럼 -값이 들어가있는 경우엔 -값을 지우지 않고 5를 지운다..
+
+작은 수를 판별할 수 있는 방법은?
+
+1. sort()로 가장 작은 수를 판별한다. 여기에서 원래 배열의 순서가 흐트러지면 안되기때문에 temp배열을 만들어 arr값을 넣어서 사용한다.
+2. 가장 작은 값을 smallNum에 담고, arr의 각 값과 비교하여 아닌 값들만 배열에 넣는다.
+
+```
+import java.util.ArrayList;
+import java.util.Collections;
+
+class Solution {
+    public ArrayList<Integer> solution(int[] arr) {
+        ArrayList<Integer> answer = new ArrayList<>();
+
+        if (arr.length == 1) {
+            answer.add(-1);
+            System.out.println(answer);
+        } else {
+            ArrayList<Integer> temp = new ArrayList<>();
+            for (int i = 0; i < arr.length; i++) {
+                temp.add(arr[i]);
+            }
+            Collections.sort(temp);
+            int smallNum = temp.get(0);
+
+            for (int i = 0; i < arr.length; i++) {
+                if(arr[i] != smallNum) {
+                    answer.add(arr[i]);
+                }
+            }
+        }
+        return answer;
+    }
+}
+```
