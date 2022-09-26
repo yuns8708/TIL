@@ -9,4 +9,4 @@ Today I Learned
 ---
 ## Java 개념 정리
 
-[220926 java 기초](java\java_study\220926_java.md)
+[220926 java 기초](https://github.com/yuns8708/TIL/blob/main/java/220926_java.md)
