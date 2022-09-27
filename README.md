@@ -11,3 +11,4 @@ Today I Learned
 
 [220926 java 기초](https://github.com/yuns8708/TIL/blob/main/java/220926_java.md)
 [220927 java 변수](https://github.com/yuns8708/TIL/blob/main/java/220927_java_variable.md)
+[220927 java 클래스](https://github.com/yuns8708/TIL/blob/main/java/220927_java_Class.md)
