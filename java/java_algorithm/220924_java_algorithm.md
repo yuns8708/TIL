@@ -13,6 +13,10 @@ Arrays.sort(배열이름, Collections.reverseOrder());
 - 제곱근 구하기 : 
 double형으로 나온다.
 Math.sqrt();
+---
+### 220927 TIL
+- md문법 - ```뒤에 java를 쓰면 해당 언어를 인식한다.
+- 
 
 ---
 
@@ -29,7 +33,7 @@ for문으로 a만큼의 별이 출력되게함
 3. 3줄 만들기
 println()은 줄바꿈임을 이용하여 5개가 찍힌 후마다 줄이 바뀌도록 함
 
-```
+``` java
         Scanner sc = new Scanner(System.in);
         int a = sc.nextInt();
         int b = sc.nextInt();
@@ -54,7 +58,7 @@ public String solution(int num)
 
 2. 출력까지 해야하는줄알았는데, 함수만 완성하면 되는거였다.
 
-```
+``` java
 class Solution {
     public String solution(int num) {
         String answer = "";
@@ -79,7 +83,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/12903
 3. 단어 자르기 -> 단어의 길이 알아야함, 자르기 함수 (substr())
 4. 또다른문제 : 단어가 2글자 이하이면, -1값이 들어가게됨 - if문으로 제어
 
-```
+``` java
         String str = "asdfㅁㄴㅇㄴㅁㅇ";
         if (str.length() > 2) {
             if (str.length() % 2 == 0) {
@@ -96,7 +100,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/12903
 그래서 위의 코드처럼 했는데, 문제는 길이가 4,3일때만 작동한다. 특정 수를 빼는게 아니라 문자의 길이를 이용해서 다른 길이의 문자마다 다른 숫자가 연산되게 해야한다고 생각했다.
 
 5. 
-```
+``` java
         String str = "12345";
         if (str.length() % 2 == 0) {
             System.out.println(str.substring(str.length() - (str.length() / 2 + 1), str.length() - (str.length() / 2 - 1)));
@@ -107,7 +111,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/12903
         }
 ```
 6. 이것을 solution메소드에 넣을때도 문제가 됐다. 변수 할당을 잘못해줬거나 필요한 부분을 실수로 지우는 등
-```
+``` java
 class Solution {
     public String solution(String s) {
         String answer = "";
@@ -133,7 +137,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/12912
 그런데, 1을 처음부터 더하다보니까 a가 1이 더해진상태로 시작하게된다. 그래서 아예 a를 -1시킨 변수를 만듦
 2. 출력된 숫자 모두 더하기 (temp)
 
-```
+``` java
 class Solution {
     public long solution(int a, int b) {
         long answer = 0;
@@ -149,7 +153,7 @@ class Solution {
 }
 ```
 3. 문제발생 : a가 더 큰 수일때에는 에러 발생 -> 둘 중 어느것이 더 큰 수인지 판별할 필요 있음
-```
+``` java
 class SumTotal {
     public long solution(int a, int b) {
         int answer = 0;
@@ -186,7 +190,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/12925
 4. 오잉?? 문제를 -, +를 떼고 출력하는것으로 알았는데 붙여서 출력하는거였다.
 근데... parseInt가 -와 +도 인식해서 변환해준다...?!
 
-```
+``` java
 class Solution {
     public int solution(String s) {
         int answer = 0;
@@ -199,7 +203,7 @@ class Solution {
 ```
 그럼 답안이 이렇게 된다.
 아래는 3번까지(-, + 떼고 출력하기) 풀었던것
-```
+``` java
 class Solution {
     public int solution(String s) {
         int answer = 0;
@@ -227,7 +231,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/86051
 
 1. 1~10까지의 숫자 불러오기 (for)
 2. numbers에 없는 숫자 판별하기 (if문으로 for문의 i와 numbers의 특정 인덱스가 같지 않을 때)
-```
+``` java
         for (int i = 0; i < arr.length; i++) {
             System.out.println(i);
             if (i != arr[i]) {
@@ -241,7 +245,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/86051
 3. 찾은 숫자 더하기
 인데 숫자가 같을때는 한번만 찍히는데, 다를때는 여러번 찍히기때문에 값을 연산하기 어려웠다. 그래서 그냥 같을때의 수를 다 구해서 더하고 그것을 1-9까지 더한 값에서 빼는 방법을 사용했다.
 
-```
+``` java
 class Solution {
     public int solution(int[] numbers) {
         int answer = 0;
@@ -260,7 +264,7 @@ class Solution {
 
 // 두번째 방법
 배열의 숫자를 다 더하고 1-9까지 더한값에서 뺌
-```
+``` java
 class Solution {
     public int solution(int[] numbers) {
         int answer = 0;
@@ -290,7 +294,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/76501
 1. absolutes의 값을 하나씩 불러온다. -> for
 2. 그 값이 true인지 false인지 구분한다 -> if
 3. true면 더해주고, false면 뺀다
-```
+``` java
 class Solution {
     public int solution(int[] absolutes, boolean[] signs) {
                         int answer = 0;
@@ -314,7 +318,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/12944
 1. 받은 수의 값 가져오기 -> for문
 2. 값을 모두 더하기 -> +-
 3. 배열의 길이만큼 나누기 -> arr.length()
-```
+``` java
 class Solution {
     public double solution(int[] arr) {
         double answer = 0;
@@ -337,7 +341,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/12948
 1. 전화번호 뒤 네자리 구하기 -> substring과 length()를 이용해서 시작하곳을 length()-4 / 끝나는곳을 length()로 하면 어떨까
 2. 나머지를 *로 처리하기 -> length()-4 길이만큼 *을 생성해서 붙이고, 그것에 다시 phonNum을 붙임
 
-```
+``` java
 class Solution {
     public String solution(String phone_number) {
         String answer = "";
@@ -362,7 +366,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/12950
 1. arr1의 i번째와 arr2의 i번째 더하기
 2. 그런데, arr의 길이가 가변이기 때문에 length()로 길이 구하기
 3. 그런데...!! 자세히 보니 배열 안에 배열이 있는거같다. 아래와 같은 구조이다.
-```
+``` java
         int[][] arr1 = new int[][]{{1,2},{2,3}};
         System.out.println(arr1[0][1]); // 출력결과 : 2
 
@@ -380,7 +384,7 @@ arr1[0][1] + arr2[0][1]
 arr1[1][0] + arr2[1][0]
 arr1[1][1] + arr2[1][1]
 
-```
+``` java
         // 꺼낼때 : for안에 for넣기
         for (int i = 0; i < arr1.length; i++) {
             for (int j = 0; j < arr1.length; j++) {
@@ -391,12 +395,12 @@ arr1[1][1] + arr2[1][1]
 
 오류 : answer배열을 아래처럼 선언, 초기화시키려했는데, 값이 안들어가있으면 오류가 나는 모양이다.
 
-```
+``` java
 int[][] answer = new int[][]{};
 ```
 5. 그래서 answer의 길이를 arr1의 길이로 설정하기로 했다
 
-```
+``` java
 class Solution {
     public int[][] solution(int[][] arr1, int[][] arr2) {
         int[][] answer = new int[arr1.length][arr1[0].length];
@@ -419,7 +423,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/12954
 
 1. x부터 시작해 n개까지의 x만큼 증가하는 반복문 만들기 -> (for int i = 0; ??? ; i += x) 
 2. 다른건 다 하겠는데 n까지가 아닌 n개까지를 어떻게 꺼내는건지 모르겠다. 
-```
+``` java
         int x = 2;
         int n = 5;
         int sum = 0;
@@ -434,7 +438,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/12954
 ```
 이런걸 생각해보다가..
 3. 잘 생각해보니 그냥 n까지 for을 돌린 뒤에 그만큼 x에 x를 더해주면 되는것이었다
-```
+``` java
 class Solution {
     public long[] solution(int x, int n) {
         long[] answer = {};
@@ -451,7 +455,7 @@ class Solution {
 이게 맞는거같은데, 오류가 난다.
 answer한테 무슨 문제가있는것같다. 위에서도 비슷한 문제를 겪었던 것이 생각나서, 초기화 시 배열의 길이를 지정해주는걸로 해결해봤다.
 
-```
+``` java
 class Solution {
     public long[] solution(int x, int n) {
         long[] answer = new long[n];
@@ -467,7 +471,7 @@ class Solution {
 
 처음으로 채점에서 실패가 떴다. 도무지 모르겠어서 찾아보니 sum의 타입 문제였다.
 
-```
+``` java
 class Solution {
     public long[] solution(int x, int n) {
         long[] answer = new long[n];
@@ -486,7 +490,7 @@ class Solution {
 https://school.programmers.co.kr/learn/courses/30/lessons/82612
 
 다른분들의 코드로 클래스 함수를 실행시키는 법을 알게되었다
-```
+``` java
 class quiz12 {
     public long quiz12(int price, int money, int count) {
         long answer = -1;
@@ -503,7 +507,7 @@ class quiz12 {
 1. count번 타게 되면 price가 얼마나 필요한지 계산 -> for문으로 count번을 돌리고, 안에서 num + 1 을 계속 price와 곱해줌
 2. money가 필요한 요금보다 적을 시 필요한 요금에서 money를 빼줌, money가 같거나 더 크면 0
 
-```
+``` java
 class quiz12 {
     public long quiz12(int price, int money, int count) {
         long answer = 0;
@@ -535,7 +539,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/12901
 1. 윤년 : 2월이 하루 더있는것 (2월29일)
 월 중에 일수가 31일인 월과 30일인 월과 29일인 월을 구분한다.
 2. 날짜에서 일을 빼서 요일을 구분한다.-> 1월1일이 금요일이니, 일주일 7에서 1을 뺀 수를 금요일로 지정
-```
+``` java
         String[] Day = new String[]{"SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"};
         String whatDay = "";
 
@@ -582,7 +586,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/12910
 1. for문으로 arr에 있는 값 하나씩 가져오기
 2. 거기서 divisor과 나눠봐서 나머지가 0인 것 구별
 
-```
+``` java
         int[] arr = new int[] {5,9,7,10};
         int divisor = 5;
         int[] answer = new int[arr.length];
@@ -607,7 +611,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/12910
 ### ArrayList를 이용하여 해결
 
 
-```
+``` java
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -651,7 +655,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/70128
 1. 내적은 a와 b의 길이만큼 계속 꺼내서 곱하는것 -> a.length만큼 for문 돌리기
 2. 값을 담을 변수를 만들고(result) 계속 +=
 
-```
+``` java
 class Solution {
     public int solution(int[] a, int[] b) {
         int result = 0;
@@ -675,7 +679,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/12916
 
 1. 문자열을 하나씩 보고 p와 y가 몇개인지 판별 -> arrayList로 하나씩 집어넣고, for문으로 판별
 문제 : 문자열을 하나씩 잘라야함 -> sustring사용
-```
+``` java
         System.out.println("aaa".substring(0,1));
         System.out.println("abc".substring(1,2));
         System.out.println("abc".substring(2,3));
@@ -684,7 +688,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/12916
 ```
 2. stringArr에서 p와 y의 개수를 세서 pNum, yNum에 각각 넣음.
 3. pNum과 yNum을 비교하여 수가 같으면 true, 틀리면 false
-```
+``` java
 import java.util.ArrayList;
 class Solution {
     boolean solution(String s) {
@@ -724,7 +728,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/12918
 1. 문자열을 잘라서 배열에 넣기 (16번과 비슷한듯)
 2. 문자열에 문자가 있는지 확인 -> 문자열을 int로 형변환시켜서 안되는거 찾기..? 또는 0~9까지의 숫자를 모두 문자열과 비교시키기(이중for문)
 
-```
+``` java
         boolean answer = false;
 
         ArrayList<String> stringArr = new ArrayList<>();
@@ -755,7 +759,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/12918
 
 3. 그렇게 해도 numNum의 숫자가 변화가 없어 '문자열 일치'를 검색해봤더니, ==로 비교하는 것이 아닌 .equals()로 비교하는 것이 있었다. 자바는 ==로 문자열을 비교할 수가 없고 .equals()를 사용해야한다고 한다.
 .equals()로 문자열을 비교한 결과 잘 작동한다.
-```
+``` java
 import java.util.ArrayList;
 
 class Solution {
@@ -783,7 +787,7 @@ class Solution {
 ```
 근데 채점 결과 몇몇개가 실패가 떴다.
 오잉...? 어딜 봐도 기능은 잘 작동해서 질문하기 창을 보니 길이가 4/6이 아닐 때의 처리를 해줘야한다고 한다. -> if문으로 글자 길이가 4 또는 6일때만 동작하게 했다.
-```
+``` java
 import java.util.ArrayList;
 
 class Solution {
@@ -822,7 +826,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/12919
 
 1. String 배열에 Kim 이 있는지 찾기
 2. Kim의 위치 찾기
-```
+``` java
 class Solution {
     public String solution(String[] seoul) {
         String answer = "";
@@ -849,7 +853,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/12922
 2. 이것을 answer문자열에 붙이기 -> 문자열 붙이기를 처리해주는 명령어가 있지 않을까?? '자바 문자열 붙이기'를 검색해보니, concat(), append()등이 있지만, 그냥 +로 붙여도 된다고한다.. ㅋㅋㅋ!!!
 3. n의 숫자만큼 반복시키기 -> if에 들어가는 조건이 n % 2 == 0 에서 i % 2 == 0 으로 변경됨!!
 
-```
+``` java
 class Solution {
     public String solution(int n) {
         String answer = "";
@@ -893,14 +897,14 @@ https://school.programmers.co.kr/learn/courses/30/lessons/12930
 난이도 : 중간-어려움
 
 ### 문자열 하나씩 쪼개서 리스트에 넣는 법
-```
+``` java
 for (int i = 0; i < 쪼갤 문자열.length(); i++) {
 쪼갠것을 넣을 arraylist.add(쪼갤 문자열.substring(i, i + 1));
 }
 ```
 이라고 생각했는데, .split()이라는 걸 알게되었다.
 ""을 기준으로 잘라주면 글자가 하나하나씩 잘리게된다.
-```
+``` java
 String[] strArr = 쪼갤 문자열.split("");
 ```
 
@@ -909,7 +913,7 @@ String[] strArr = 쪼갤 문자열.split("");
 3. 짝수면 대문자로(.toUpperCase()), 홀수면 소문자로(.toLowerCase()) 변환
 
 
-```
+``` java
 import java.util.ArrayList;
 
 class Solution {
@@ -943,7 +947,7 @@ class Solution {
 
 찾아보니 .split()을 사용하면 될 것 같다.
 
-```
+``` java
         String answer = "";
 
         String[] strArr = s.split("");
@@ -962,7 +966,7 @@ class Solution {
 
 카운트를 받는 변수를 하나 만들고 공백일 때는 count=0 처리를 해주기로 했다.
 
-```
+``` java
 import java.util.ArrayList;
 
 class Solution {
@@ -1005,7 +1009,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/12931
 3. 2의 배열 값들을 숫자로 변환하고, numArr에 넣기
 3. 각 배열 값 더하기
 
-```
+``` java
 import java.util.*;
 
 public class Solution {
@@ -1037,7 +1041,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/12932
 1. n을 받아 문자열로 변환, 쪼개서 하나씩 배열에 집어넣기(split) -> 이걸 Integer.toString()로 해보려했더니 n이 long타입이어서 에러가 났다. 찾아보니 String.valueOf()란걸 쓰면 된다고 한다.
 2. 순서 바꾸기 -> 어떻게 인덱스 번호를 뒤집을것인가 많이 고민했다. 이중 for문으로 해보다가 그냥 for문으로 strArr의 길이-1에서 시작해서, 0이 될 때까지 --해주면 된다는 걸 깨달았다.
 
-```
+``` java
 import java.util.ArrayList;
 
 class Solution {
@@ -1069,7 +1073,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/12933
 3. temp 빈 문자열을 만들고, 배열에서 하나씩 꺼내서 붙이기
 4. temp를 숫자로 형변환 -> 런타임 에러 : int말고 long으로 변환해야함!! Long.parseLong()
 
-```
+``` java
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -1109,7 +1113,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/12934
 3. 그렇다면 n의 제곱근 값인 square을 곱한 결과가 같은지 판별해준다.
 4. 조건을 만족하면 answer = (square+1) * (square+1), 만족하지 않으면 answer = -1 -> 여기서, double과 long간의 형변환을 해야한다. (int)를 앞에 붙여줌
 
-```
+``` java
 class Solution {
     public long solution(long n) {
         long answer = 0;
@@ -1132,7 +1136,7 @@ class Solution {
 아마 그냥 int로 바꿔주고 long타입이 아니어서 그런듯하다
 이렇게 되면 double -> int -> long 이렇게 두번 바꿔치기 해주면 어떨까
 
-```
+``` java
         double square = Math.sqrt(n);
         int intSquare = (int)Math.sqrt(n);
         long longSquare = (long) (int) Math.sqrt(n);
@@ -1141,7 +1145,7 @@ class Solution {
 삼단 변신 후
 채점도 무사히 통과했다!!
 
-```
+``` java
 class Solution {
     public long solution(long n) {
         long answer = 0;
@@ -1172,7 +1176,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/12935
 2. 0번째 인덱스의 값 삭제 -> intArr.remove(0)
 3. intArr의 size가 0이면, .add(-1)
 
-```
+``` java
 class Solution {
     public ArrayList<Integer> solution(int[] arr) {
         ArrayList<Integer> intArr = new ArrayList<>();
@@ -1209,7 +1213,7 @@ class Solution {
 2. 이중for문으로 두개의 값 비교하기
 3. 가장 작은 값의 인덱스를 변수에 저장해서 remove하기
 
-```
+``` java
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -1255,7 +1259,7 @@ println으로 다양한 값을 넣어보며 실험해봤더니,
 1. sort()로 가장 작은 수를 판별한다. 여기에서 원래 배열의 순서가 흐트러지면 안되기때문에 temp배열을 만들어 arr값을 넣어서 사용한다.
 2. 가장 작은 값을 smallNum에 담고, arr의 각 값과 비교하여 아닌 값들만 배열에 넣는다.
 
-```
+``` java
 import java.util.ArrayList;
 import java.util.Collections;
 
