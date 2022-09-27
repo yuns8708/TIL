@@ -1288,3 +1288,163 @@ class Solution {
     }
 }
 ```
+
+---
+
+## 27. 콜라츠 추측
+
+https://school.programmers.co.kr/learn/courses/30/lessons/12943
+
+난이도 : 중간
+
+1. 입력된 수가 짝수인지 홀수인지 판별
+2. 짝수면 2로 나눔 -> 1이 될 때까지 반복 수 카운팅
+3. 홀수면 3을 곱하고 1을 더함 -> 1이 될 때까지 반복 수 카운팅
+3. 주어진 수가 1이면 0반환
+4. 500번을 반복했을 때 제어문 조절
+
+```
+        while (count <= 500) {
+            if (num % 2 == 0) {
+                System.out.println("짝수");
+                num = num / 2;
+                System.out.println(num);
+                count++;
+//                break;
+            } else if (num % 2 == 1) {
+                num = num * 3 + 1;
+
+                System.out.println("홀수");
+                System.out.println(num);
+                count++;
+            }
+            if (num == 1) {
+                System.out.println(count);
+                break;
+            }
+            if (count > 500) {
+                answer = -1;
+                break;
+            }
+        }
+
+        if (count > 500) {
+            answer = -1;
+        }
+```
+문제 : 작업을 500번 반복했을 때 -1을 반환하는 로직이 어렵다.
+=> for문으로 500될때까지 실행으로 바꿈
+```
+class Solution {
+    public int solution(int num) {
+        int count = 0;
+        for (int i = 0; i < 500; i++) {
+            if (num % 2 == 0) {
+                num = num / 2;
+                count++;
+            } else if (num % 2 == 1) {
+                num = num * 3 + 1;
+                count++;
+            } else {
+                count++;
+            }
+            if (num == 1) {
+//                System.out.println(count);
+                break;
+            }
+        }
+        if (count == 500) {
+            count = -1;
+        }
+        System.out.println(count);
+
+        return count;
+    }
+}
+```
+제출해봤더니 13번 테스트가 실패했다.
+해결 : num이 1일때 0을 반환하는 코드 추가
+
+```
+class Solution {
+    public int solution(int num) {
+        int count = 0;
+        for (int i = 0; i < 500; i++) {
+            if (num == 1) {
+                count = 0;
+            } else if (num % 2 == 0) {
+                num = num / 2;
+                count++;
+            } else if (num % 2 == 1) {
+                num = num * 3 + 1;
+                count++;
+            } else {
+                count++;
+            }
+            if (num == 1) {
+//                System.out.println(count);
+                break;
+            }
+        }
+        if (count == 500) {
+            count = -1;
+        }
+        System.out.println(count);
+
+        return count;
+    }
+}
+```
+
+
+---
+
+## 28. 하샤드 수
+
+https://school.programmers.co.kr/learn/courses/30/lessons/12947
+
+난이도 : 쉬움
+
+1. 받은 숫자 x를 문자열로 반환
+2. 빈 stringArr 배열 만들고, 1번의 문자열을 쪼개서 넣기
+3. 문자를 숫자열로 변환, numArr에 집어넣기
+4. 자릿수를 모두 더함
+5. 더한 수가 x와 나누어 떨어지는지 확인, 나누어 떨어지지 않으면 false로 바꿈
+
+```
+import java.util.ArrayList;
+
+class Solution {
+    public boolean solution(int x) {
+        boolean answer = true;
+
+        // 1. 숫자 문자열로 변환
+        String numStr = Integer.toString(x);
+
+        ArrayList<String> stringArr = new ArrayList<>();
+        ArrayList<Integer> numArr = new ArrayList<>();
+
+        int temp = 0;
+
+        for (int i = 0; i < numStr.length(); i++) {
+            // 2. 하나씩 쪼개기
+            stringArr.add(numStr.substring(i, i + 1));
+            // 3. 문자 숫자열로 변환해 배열에 하나씩 집어넣기
+            numArr.add(Integer.parseInt(stringArr.get(i)));
+
+            // 4. 자릿수 모두 더하기
+            temp += numArr.get(i);
+        }
+
+        // 5. 더한 수가 x와 나누어 떨어지는지 확인
+
+        if (x % temp != 0) {
+            answer = false;
+        }
+
+        return answer;
+    }
+}
+```
+
+---
