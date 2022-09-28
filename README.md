@@ -14,7 +14,7 @@ Today I Learned
 
 [220927 java 클래스](https://github.com/yuns8708/TIL/blob/main/java/220927_java_Class.md)
 
-[220927 java 연산자](https://github.com/yuns8708/TIL/blob/main/java/220927_java_operator.md)
+[220928 java 연산자](https://github.com/yuns8708/TIL/blob/main/java/220928_java_operator.md)
 
 ---
 
