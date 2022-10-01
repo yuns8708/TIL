@@ -18,6 +18,8 @@ Today I Learned
 
 [220929 - java 조건문 switch, break, continue](https://github.com/yuns8708/TIL/blob/main/java/220929_java_switch_break_continue.md)
 
+[221002 - java 참조 타입](https://github.com/yuns8708/TIL/blob/main/java/221002_java_reference_type.md)
+
 ---
 
 ## Spring
