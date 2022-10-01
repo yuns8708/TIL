@@ -8,20 +8,22 @@ Today I Learned
 
 ## Java 개념 정리
 
-[220926 java 기초](https://github.com/yuns8708/TIL/blob/main/java/220926_java.md)
+[220926 - java 기초](https://github.com/yuns8708/TIL/blob/main/java/220926_java.md)
 
-[220927 java 변수](https://github.com/yuns8708/TIL/blob/main/java/220927_java_variable.md)
+[220927 - java 변수](https://github.com/yuns8708/TIL/blob/main/java/220927_java_variable.md)
 
-[220927 java 클래스](https://github.com/yuns8708/TIL/blob/main/java/220927_java_Class.md)
+[220927 - java 클래스](https://github.com/yuns8708/TIL/blob/main/java/220927_java_Class.md)
 
-[220928 java 연산자](https://github.com/yuns8708/TIL/blob/main/java/220928_java_operator.md)
+[220928 - java 연산자](https://github.com/yuns8708/TIL/blob/main/java/220928_java_operator.md)
 
-[220929 java 조건문 switch, break, continue](https://github.com/yuns8708/TIL/blob/main/java/220929_java_switch_break_continue.md)
+[220929 - java 조건문 switch, break, continue](https://github.com/yuns8708/TIL/blob/main/java/220929_java_switch_break_continue.md)
 
 ---
 
 ## Spring
-[221001 REST API](https://github.com/yuns8708/TIL/blob/main/Spring/221001_REST_API.md)
+
+[221001 - REST API](https://github.com/yuns8708/TIL/blob/main/Spring/221001_REST_API.md)
+
 ---
 
 [java 과제](https://github.com/yuns8708/TIL/blob/main/java/java_assignment.md)
