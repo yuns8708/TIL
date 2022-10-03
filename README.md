@@ -26,6 +26,9 @@ Today I Learned
 
 [221001 - REST API](https://github.com/yuns8708/TIL/blob/main/Spring/221001_REST_API.md)
 
+[221003 - Spring : MVC패턴](https://github.com/yuns8708/TIL/blob/main/Spring/221003_spring_MVC.md)
+
+
 ---
 
 [java 과제](https://github.com/yuns8708/TIL/blob/main/java/java_assignment.md)
