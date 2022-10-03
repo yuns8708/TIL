@@ -5,8 +5,8 @@
 ## 웹사이트의 흐름
 1. 클라이언트가 요청을 보냄
 2. 보낸 요청을 Controller가 받아서, 요청을 처리하기 위해 Service를 호출
-3. Service가 요청을 처리함(비즈니스 로직을 수행)
-4. Repository도 DB에 접근하여 데이털르 처리함
+3. Service가 요청을 처리함 (비즈니스 로직을 수행)
+4. Repository도 DB에 접근하여 데이터를 처리함
 5. 처리된 정보를 Controller에게 전달함
 6. Controller가 전달된 정보를 다시 클라이언트에게 보냄
 
