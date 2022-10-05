@@ -34,6 +34,8 @@ Today I Learned
 
 [221005 - Spring : Annotation](https://github.com/yuns8708/TIL/blob/main/Spring/221005_spring_Annotation.md)
 
+[221005 - Spring : 제네릭스와 람다식](https://github.com/yuns8708/TIL/blob/main/Spring/221005_spring_generics_lambda.md)
+
 ---
 
 [java 과제](https://github.com/yuns8708/TIL/blob/main/java/java_assignment.md)
