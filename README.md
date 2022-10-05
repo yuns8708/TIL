@@ -32,6 +32,8 @@ Today I Learned
 
 [221004 - Spring : JSON](https://github.com/yuns8708/TIL/blob/main/Spring/221004_spring_JSON.md)
 
+[221005 - Spring : Annotation](https://github.com/yuns8708/TIL/blob/main/Spring/221005_spring_Annotation.md)
+
 ---
 
 [java 과제](https://github.com/yuns8708/TIL/blob/main/java/java_assignment.md)
