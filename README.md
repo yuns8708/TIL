@@ -36,6 +36,8 @@ Today I Learned
 
 [221005 - Spring : 제네릭스와 람다식](https://github.com/yuns8708/TIL/blob/main/Spring/221005_spring_generics_lambda.md)
 
+[221007 - Spring : enum 클래스](https://github.com/yuns8708/TIL/blob/main/Spring/221007_spring_enum.md)
+
 ---
 
 [java 과제](https://github.com/yuns8708/TIL/blob/main/java/java_assignment.md)
