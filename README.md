@@ -38,6 +38,8 @@ Today I Learned
 
 [221007 - Spring : enum 클래스](https://github.com/yuns8708/TIL/blob/main/Spring/221007_spring_enum.md)
 
+[221008 - Spring : JWT](https://github.com/yuns8708/TIL/blob/main/Spring/221008_spring_JWT.md)
+
 ---
 
 [java 과제](https://github.com/yuns8708/TIL/blob/main/java/java_assignment.md)
