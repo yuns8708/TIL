@@ -54,6 +54,13 @@
 
 ### @Column
 - 엔티티의 각 Column을 의미
+- @Column(nullable = false) : null 값이 들어갈 수 없음
+- @Column(name = "user_id") : 컬럼의 이름 지정
+- @Column(unique = true) : 해당 컬럼과 중복된 값 생성 불가
+
+### @Size
+- @Size(min = 3, max = 50) : 최대, 최소값 지정 가능
+- JAP와 Hibernate로부터 독립적인 bean을 만듦
 
 ### @Id
 - 해당 필드가 테이블의 주 키(primary key)여할을 한다는 것을 알림
@@ -73,6 +80,10 @@
 - DB의 상태를 변경하는 작업이나 한번에 수행되어야하는 연산들을 의미함
 - begin, commit을 자동 수행
 - 예외발생 시 rollback 처리 자동 수행
+
+### @AuthenticationPrincipal
+- 스프링 시큐리티 어노테이션
+- 로그인한 사용자의 정보를 매개변수로 전달받을 수 있음
 
 ---
 
