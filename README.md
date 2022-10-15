@@ -40,6 +40,8 @@ Today I Learned
 
 [221008 - Spring : JWT](https://github.com/yuns8708/TIL/blob/main/Spring/221008_spring_JWT.md)
 
+[221016 - Spring : Builder](https://github.com/yuns8708/TIL/blob/main/Spring/221008_spring_Builder.md)
+
 ---
 
 [java 과제](https://github.com/yuns8708/TIL/blob/main/java/java_assignment.md)
