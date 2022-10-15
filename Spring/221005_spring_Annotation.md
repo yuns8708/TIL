@@ -81,6 +81,15 @@
 - begin, commit을 자동 수행
 - 예외발생 시 rollback 처리 자동 수행
 
+#### DB 운영 방식 - Primary, Repolica
+스프링에 Primary DB endpoint, Replica DB endpoint를 설정하면 해당 개념을 사용할 수 있다.
+- DB 훼손 가능성을 고려하여 쓰기 전용인 primary와 읽기 전용인 replica로 구분하여 사용함.
+
+- primary에 문제가 생겼을 경우 replica서버 중 하나가 primary로 스위칭된다.
+
+- @Transactional(readOnly = false) : 쓰기 전용 (기본값)
+- @Transactional(readOnly = true) : 읽기 전용
+
 ### @AuthenticationPrincipal
 - 스프링 시큐리티 어노테이션
 - 로그인한 사용자의 정보를 매개변수로 전달받을 수 있음
