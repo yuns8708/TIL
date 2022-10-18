@@ -32,10 +32,22 @@ ctrl + J로 라이브템플릿 목록 확인 가능
 ### 안쓰는 import 자동 정리
 > ctrl + alt + O
 
+---
 
 ### generate
 생성자 등 자동 생성
 > alt + Insert
+
+### 메소드 자동 생성
+> ctrl + alt + M
+
+### 패키지에서 특정 키워드 찾기
+> ctrl + shift + R
+
+### 메소드 이름 모두 바꾸기
+> ctrl + shift + F6
+
+---
 
 ### 터미널 창 열기
 > alt + F12
