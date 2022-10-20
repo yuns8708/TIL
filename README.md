@@ -42,6 +42,8 @@ Today I Learned
 
 [221016 - Spring : Builder](https://github.com/yuns8708/TIL/blob/main/Spring/221008_spring_Builder.md)
 
+[221020 - Spring : 레이어드 아키텍처](https://github.com/yuns8708/TIL/blob/main/Spring/221020_spring_Layered_Architecture.md)
+
 ---
 
 [java 과제](https://github.com/yuns8708/TIL/blob/main/java/java_assignment.md)
