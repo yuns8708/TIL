@@ -20,6 +20,8 @@ Today I Learned
 
 [221002 - java 참조 타입](https://github.com/yuns8708/TIL/blob/main/java/221002_java_reference_type.md)
 
+[221022 - java 인터페이스](https://github.com/yuns8708/TIL/blob/main/java/221022_java_interface.md)
+
 ---
 
 ## Spring
