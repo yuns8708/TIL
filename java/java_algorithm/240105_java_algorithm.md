@@ -45,3 +45,40 @@ public class Solution {
     }
 }
 ```
+
+---
+
+## 개선 답안
+
+ArrayList에서 최소값을 찾아주는 Collections.min 메서드를 적용하여, 코드를 수정해보았다.
+
+1. 명예의 전당에 올라갈 수를 담는 arrayList인 kNums를 만든다.
+2. score의 값을 반복문으로 돌면서, kNums에 각 값을 넣어준다.
+3. kNums의 크기가 k보다 커지면, 가장 낮은 점수를 Collections.min으로 찾아내어 제거한다.
+4. kNums에서 가장 낮은 점수를 answer에 넣는다.
+
+
+```java
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Solution {
+    public int[] solution(int k, int[] score) {
+        int[] answer = new int[score.length];
+
+        ArrayList <Integer> kNums = new ArrayList<>();
+
+        for (int i = 0; i < score.length; i++) {
+            kNums.add(score[i]);
+
+            // kNums의 크기가 k보다 커지면 가장 낮은 점수 제거
+            if (kNums.size() > k) {
+                kNums.remove(Collections.min(kNums));
+            }
+
+            answer[i] = Collections.min(kNums);
+        }
+        return answer;
+    }
+}
+```
